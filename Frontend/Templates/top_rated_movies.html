@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Rated Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("../static/images/background.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure full height of viewport */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* Add margin to separate from heading */
+        }
+
+        h1 {
+            color: white; /* Set heading color to white */
+            text-align: center;
+            margin-top: 20px; /* Add margin to separate from container */
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: calc(20% - 20px); /* Each card occupies 20% of the screen width with margin */
+            height: 100px; /* Set height based on viewport width */
+            margin: 10px; /* Add margin between cards */
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Set card background color with opacity */
+            text-align: center;
+            transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
+            position: relative; /* Position relative for absolute positioning of rating */
+            overflow: hidden; /* Hide overflow to prevent ratings from overflowing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Increase scale on hover */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 20px; /* Increase heading font size */
+            color: #333; /* Set heading color */
+        }
+
+        .card p {
+            margin-bottom: 0;
+            font-size: 16px; /* Increase paragraph font size */
+            color: #666; /* Set paragraph color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Rated Movies</h1>
+    <div class="container">
+        {% for movie in top_movies %}
+        <div class="card" style="background-image: url('{{ movie[2] }}');">
+            <h2>{{ movie[0] }}</h2>
+            <p>Rating: {{ movie[1] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

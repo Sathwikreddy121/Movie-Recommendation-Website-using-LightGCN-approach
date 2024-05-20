@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@5.4.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css_files/signUp.css') }}">
+    <style>
+        body {
+            background-image: url("../static/images/background.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+    </style>
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="background-text">
+        <p><strong><middle>MOVIES RECOMMENDATION WEBSITE</middle></strong></p>
+       
+    </div>
+    <div class="bg-text">
+        <p><em>Choose the Top rated movies of your Favorite Genre!!</em></p>
+    </div>
+    <form id="signupform" method="POST" action="{{ url_for('sign_up') }}">
+        {{ form.hidden_tag() }}
+        <header>Sign Up</header>
+        <br>
+        <div class="input-group">
+            {{ form.email.label }} {{ form.email(class="form-control", placeholder="Enter Email or Phone Number", id="emailOrPhone") }}
+        </div>
+        <div class="input-group">
+            {{ form.password.label }} {{ form.password(class="form-control", placeholder="Enter Password", id="password") }}
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Show Password</label>
+        </div>
+        {{ form.submit(class="btn btn-primary", label="Sign Up") }}
+        <a href="{{ url_for('log_in') }}">Already have an account? Log In</a>
+    </form>
+
+    <script src="{{ url_for('static', filename='js_files/signUp.js') }}"></script>
+
+    <!-- Add Swiper JS after your form -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@5.4.5/swiper-bundle.min.js"></script>
+
+    <script>
+        const swipper = new Swipper(
+            ".signUp" , {
+                pagination: {
+                    el: ".swipper-pagination",
+                    clickable: true,
+                },
+                speed: 600,
+            }
+        );
+    </script>
+</body>
+
+</html>

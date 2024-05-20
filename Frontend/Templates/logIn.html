@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css_files/login.css') }}">
+    <style>
+        body {
+              background-image: url("../static/images/background.jpeg");
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+              margin: 0;
+              padding: 0;
+              font-family: Arial, sans-serif;
+              height: 100vh; 
+             }
+    </style>
+    <title>Log In</title>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="background-text">
+        <p><strong><middle>MOVIES RECOMMENDATION WEBSITE</middle></strong></p>
+       
+    </div>
+    <div class="bg-text">
+        <p><em>Choose the Top rated movies of your Favorite Genre!!</em></p>
+    </div>
+    <form id="loginform">
+        <header>Log In</header>
+        <br>
+        <div class="input-group">
+            <label for="emailOrphone">Email or Phone Number</label>
+            <input type="text" id="emailOrphone" name="emailOrphone" placeholder="Enter Email or Phone Number" required>
+        </div>
+        <button type="submit">Log In</button>
+        <a href="{{ url_for('sign_up') }}">Don't have an account? Sign Up</a>
+    </form>
+
+    <script src="{{ url_for('static', filename='js_files/login.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css_files/movie_details.css') }}">
+  <style>
+    body {
+              background-image: url("../static/images/background.jpeg");
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+              margin: 0;
+              padding: 0;
+              font-family: Arial, sans-serif;
+              height: 100vh; 
+             }
+    /* Flexbox styling */
+    .form-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-container > div {
+      margin-right: 10px;
+    }
+
+    .form-container > div:last-child {
+      margin-right: 0;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <h1>Movie Details</h1>
+  <form id="search-form">
+    <div class="form-container">
+      <div>
+        <label for="select-tag">Tags:</label>
+        <select id="select-tag" name="select-tag">
+          <option value="any" selected>Any tag</option>
+          <option value="psychology">psychology</option>
+          <option value="sci-fi">sci-fi</option>
+          <option value="fantasy">fantasy</option>
+          <option value="old">old</option>
+          <option value="politics">politics</option>
+        </select>
+      </div>
+      <div>
+        <label for="select-rating">Ratings:</label>
+        <select id="select-rating" name="select-rating">
+          <option value="">Any rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="4.5">4.5</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div>
+        <label for="enter-year">Enter Year:</label>
+        <input type="number" id="enter-year" name="enter-year" min="1900" max="2024">
+      </div>
+    </div>
+  </form>
+  <div id="movie-details" class="movie-container">
+  </div>
+  <script src="{{ url_for('static', filename='js_files/movie_details.js') }}"></script>
+</body>
+</html>

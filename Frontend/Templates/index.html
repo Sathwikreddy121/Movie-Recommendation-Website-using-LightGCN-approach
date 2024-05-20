@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css_files/index.css') }}">
+  <style>
+    /* Add CSS for card styles here */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .card {
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      width: 200px;
+      height: 300px;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      position: relative; /* Add position relative */
+    }
+    
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card:nth-child(1) {
+      background-image: url("static/images/movies.jpg");
+    }
+
+    .card:nth-child(2) {
+      background-image: url("static/images/top.jpg");
+    }
+
+    .card:nth-child(3) {
+      background-image: url("static/images/top1.jpg");
+    }
+
+    .card:nth-child(4) {
+      background-image: url("static/images/userProfile.jpg");
+    }
+
+    .card img {
+      display: none; /* Hide image tag */
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      margin-top: 10px;
+      position: absolute; /* Position title at the bottom */
+      bottom: 20px;
+      left: 0;
+      right: 0;
+    }
+
+    /* Make the whole card clickable */
+    .card a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    
+  </style>
+  <title>Movie Recommendation Website</title>
+</head>
+<body>
+  <h2><strong>Movie Recommendation Website</strong></h2>
+  <div class="container">
+    <div class="card">
+      <a href="movie_details.html"></a>
+      <div class="card-title">Movies</div>
+    </div>
+    <div class="card">
+      <a href="recommendations.html"></a>
+      <div class="card-title">Recommendations</div>
+    </div>
+    <div class="card">
+      <a href="top_rated_movies.html"></a>
+      <div class="card-title">Top Rated Movies</div>
+    </div>
+    <div class="card">
+      <a href="user_profile.html"></a>
+      <div class="card-title">User Profile</div>
+    </div>
+  </div>
+</body>
+</html>

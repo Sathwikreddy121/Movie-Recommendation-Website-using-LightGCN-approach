@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../static/images/background.jpeg"); /* Adjust the file path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+
+        h2, h3, h4 {
+            color: #333;
+            text-align: center;
+            font-weight: bold; /* Make headings bold */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing */
+            margin-top: 30px; /* Add some top margin for spacing */
+        }
+
+        h2 {
+            font-size: 24px; /* Increase font size for h2 */
+        }
+
+        h3 {
+            font-size: 20px; /* Increase font size for h3 */
+        }
+
+        h4 {
+            font-size: 18px; /* Increase font size for h4 */
+        }
+
+        form {
+            max-width: 500px; /* Increased width for better organization */
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the form background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 1px; /* Add letter spacing */
+        }
+
+        #username-label, #email-label {
+            color: black; /* Change label color to black */
+            font-size: 18px; /* Increase font size */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Profile</h2>
+    <form id="user-profile-form">
+        <h3>Personal Information</h3>
+        <label id="username-label" for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <div class="error-message" id="username-error"></div>
+        <label id="email-label" for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <div class="error-message" id="email-error"></div>
+        <div class="checkbox-column">
+      
+            <h3>Preferences</h3>
+            {% for genre in available_genres %}
+            <input type="checkbox" id="{{ genre }}" name="preferences" value="{{ genre }}">
+            <label for="{{ genre }}">{{ genre }}</label><br>
+            {% endfor %}
+        </div>
+        </div>
+        <h3>Movie Ratings</h3>
+        <label for="ratings">Ratings you wish to watch:</label><br>
+        <input type="text" id="ratings" name="ratings" required><br>
+        <div class="error-message" id="ratings-error"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="profile-summary" style="display: none;">
+        <!-- Profile summary will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('user-profile-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+    
+            // Get form data
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const ratings = document.getElementById('ratings').value;
+    
+            // Get selected genres
+            const selectedGenres = Array.from(document.querySelectorAll('input[name="preferences"]:checked'))
+                .map(checkbox => checkbox.value);
+    
+            // Validate form data
+            const usernameError = document.getElementById('username-error');
+            const emailError = document.getElementById('email-error');
+            const ratingsError = document.getElementById('ratings-error');
+    
+            usernameError.textContent = '';
+            emailError.textContent = '';
+            ratingsError.textContent = '';
+    
+            let isValid = true;
+    
+            if (!username) {
+                usernameError.textContent = 'Please enter a username.';
+                isValid = false;
+            }
+    
+            if (!email) {
+                emailError.textContent = 'Please enter an email address.';
+                isValid = false;
+            }
+    
+            if (!ratings) {
+                ratingsError.textContent = 'Please enter movie ratings.';
+                isValid = false;
+            } else if (isNaN(ratings) || ratings < 1 || ratings > 5) {
+                ratingsError.textContent = 'Ratings should be between 1 and 5.';
+                isValid = false;
+            }
+    
+            if (isValid) {
+                // Construct table data
+                const tableData = `
+                    <html>
+                    <head>
+                        <title>Profile Summary</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                background-image: url("../static/images/background.jpeg");
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                padding: 20px;
+                                text-align: center;
+                            }
+                            
+                            table {
+                                margin: 0 auto;
+                                border-collapse: collapse;
+                                width: 80%;
+                                background-color: rgba(255, 255, 255, 0.8);
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+                            
+                            th, td {
+                                padding: 10px;
+                                border-bottom: 1px solid #ddd;
+                            }
+                            
+                            th {
+                                background-color: #f2f2f2;
+                            }
+                            
+                            h2 {
+                                color: white;
+                                font-weight: bold;
+                                text-transform: uppercase;
+                                letter-spacing: 2px;
+                                margin-top: 30px;
+                            }
+                            
+                            .success-message {
+                                color: white;
+                                font-size: 22px;
+                                margin-top: 20px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: bold;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h2>Profile Summary</h2>
+                        <table>
+                            
+                            <tr>
+                                <td>Username</td>
+                                <td>${username}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>${email}</td>
+                            </tr>
+                            <tr>
+                                <td>Ratings you wish to watch</td>
+                                <td>${ratings}</td>
+                            </tr>
+                            <tr>
+                                <td>Your favorite genres</td>
+                                <td>${selectedGenres.join(', ')}</td>
+                            </tr>
+                        </table>
+                        <p class="success-message">Profile saved successfully!!</p>
+                    </body>
+                    </html>
+                `;
+    
+                // Open a new window with the table data
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(tableData);
+            }
+        });
+    </script>
+</body>

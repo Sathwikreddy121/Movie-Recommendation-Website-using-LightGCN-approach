@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-device-width, initial-scale=1.0">
+  <title>Movie Recommendation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css_files/recommendations.css') }}">
+  <style>
+    body {
+      background-image: url("../static/images/recoo_bg6.jpg");
+      font-weight: bold;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh; 
+      color: black;
+    }
+    .movie-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 5px;
+      width: 200px; /* Adjust the width as needed */
+      display: inline-block; /* Display cards side by side */
+    }
+  </style>
+</head>
+<body>
+  <h1>Movie Recommendations For You!!</h1>
+  <form id="recommendation-form" method="POST" action="{{ url_for('recommendations') }}">
+    <label for="genres">Select genres (choose multiple):</label>
+    <div class="dropdown">
+      <select name="genres" id="genres" multiple>
+        <!-- Options here --> <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Animation">Animation</option>
+        <option value="Children's">Children's</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Crime">Crime</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Drama">Drama</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Film-Noir">Film-Noir</option>
+        <option value="Horror">Horror</option>
+        <option value="Musical">Musical</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+        <option value="War">War</option>
+        <option value="Western">Western</option>
+      </select>
+    </div>
+    <p id="selection-message"></p>
+    <!-- Added an ID to the button for easier access -->
+    <button id="submit-button" type="submit">Get Recommendations</button>
+  </form>
+  <!-- Container for the download message -->
+  <div id="download-message"></div>
+  <div id="recommendations" class="movie-container">
+    <!-- Movie cards will be dynamically added here -->
+  </div>
+  <script src="{{ url_for('static', filename='js_files/recommendation.js') }}"></script>
+</body>
+</html>
