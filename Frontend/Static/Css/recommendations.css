@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+    font-size: 40px;
+    
+}
+body {
+    background-image: url("../static/images/recoo_bg6.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; 
+    color: white;
+}
+
+select {
+    position: relative;
+    right: -10px;
+}
+
+form {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    right: -20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

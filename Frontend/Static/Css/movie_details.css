@@ -1,0 +1,180 @@
+/* Movie card styles */
+.movie-card {
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 10px 20px 10px; /* Add margin around each card */
+    color: white;
+    flex: 1 0 calc(20% - 20px); /* Adjust width to fit 5 cards per row */
+    max-width: calc(20% - 20px); /* Adjust maximum width for smaller screens */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+select {
+    display: block;
+    margin-bottom: 5px;
+    background-color: white;
+    color:black;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position:relative;
+    top: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    right: -12px;
+}
+input[type="text"],
+input[type="button"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+input[type = "number"]{
+    width: 50px;
+    padding: 9px;
+    height: 19px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    position:relative;
+    top: 3px;
+    left: 14px;
+    font-weight: bold;
+
+}
+button {
+    background-color: #92070e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    right: -20px;
+    top: 14px;
+    font-size: 15px;
+    height: auto;
+}
+
+button:hover {
+    background-color: #c30d10;
+
+}
+/* Movie title styles */
+.movie-card h2 {
+    margin-top: 0;
+    font-size: 1.2rem; /* Adjust font size to fit within the card */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis to indicate text overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Show details when .show-details class is applied */
+.movie-details.show-details {
+    display: block;
+}
+
+/* Container styles */
+.movie-container {
+    max-width: 100%; /* Adjust to fit the width of the viewport */
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute space evenly between cards */
+    bottom: -550px;
+}
+
+/* Body styles */
+
+body {
+    background-color: #111111; /* Ash color */
+    color: white;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    position: relative;
+    top: 30px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .movie-card {
+        flex-basis: calc(40% - 20px); /* Adjust width to fit 5 cards per row */
+        max-width: calc(40% - 20px); /* Adjust maximum width for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        flex-basis: calc(50% - 20px); /* Adjust width to fit 2 cards per row */
+        max-width: calc(50% - 20px); /* Adjust maximum width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        flex-basis: calc(100% - 20px); /* Adjust width to fit 1 card per row */
+        max-width: calc(100% - 20px); /* Adjust maximum width for smaller screens */
+    }
+}
+/* Yellow color for stars */
+.movie-card .star {
+    color: yellow;
+}
+/* CSS for active details */
+.movie-card.active .movie-details.details-active {
+    background-color: white; /* Change details background color to white */
+    color: black; /* Change details text color to black */
+}
+/* Movie details styles */
+.movie-details {
+    display: none; /* Hide details by default */
+    padding: 10px; /* Add padding to details */
+    background-color: rgba(125, 93, 93, 0.1);; /* Set background color for details */
+    color: white; /* Set text color for details */
+}
+title .h1 {
+    position: relative;
+    right : -150px;
+}
+input {
+    position: relative;
+    right: -200px;
+    top: -50px;
+}
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    right:-15px;
+}
+
+input[type="text"],
+input[type="password"],.form-control {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+}
+h1 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

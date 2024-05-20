@@ -1,0 +1,81 @@
+body {
+    background-image: url("static/images/index_bg.jpg"); /* Assuming CSS file is in frontend directory */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #111111;
+    
+  }
+  
+  /* Your existing CSS styles */
+  
+/* Your existing CSS styles */
+ul {
+    list-style-type: none;
+    margin: 16px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+h2,
+strong {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    position: relative;
+    top: 50px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+li a:hover {
+    background-color: #111111;
+    font-weight: bold;
+}
+
+li.search {
+    float: right;
+}
+
+li.signUp {
+    float: right;
+}
+
+.button {
+    background-color: rgb(151, 12, 12);
+    border: 1px solid white;
+    border-collapse: collapse;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin: 10px;
+    cursor: pointer;
+    height: 12px;
+    width: auto;
+}
+
+.button:hover {
+    background-color: rgb(195, 11, 11);
+}
+
+
